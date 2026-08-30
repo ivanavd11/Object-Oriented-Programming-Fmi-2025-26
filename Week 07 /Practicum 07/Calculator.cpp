@@ -1,0 +1,40 @@
+#include "Calculator.h"
+#include <iostream>
+
+Calculator* Calculator::instance = nullptr;
+
+Calculator::Calculator()
+{
+}
+
+Calculator* Calculator::getInstance()
+{
+	if (instance == nullptr)
+	{
+		instance = new Calculator();
+	}
+
+	return instance;
+}
+
+double Calculator::sum(double first, double second)
+{
+	return first + second;
+}
+double Calculator::substeact(double first, double second)
+{
+	return first - second;
+}
+double Calculator::multiply(double first, double second)
+{
+	return first * second;
+}
+double Calculator::divide(double first, double second)
+{
+	if (first == 0 || second == 0)
+	{
+		std::cout << "No divide by 0\n";
+		return 0.0;
+	}
+	return first / second;
+}
